@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Change Box</title>
+    <style>
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            background: gray;
+            margin: 30px auto;
+            border: 2px solid #333;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .color-btn {
+            width: 60px;
+            height: 30px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorBox"></div>
+    <div style="text-align:center;">
+        <button class="color-btn" style="background:red;" onclick="changeColor('red')">Red</button>
+        <button class="color-btn" style="background:blue;" onclick="changeColor('blue')">Blue</button>
+        <button class="color-btn" style="background:green;" onclick="changeColor('green')">Green</button>
+        <button class="color-btn" style="background:orange;" onclick="changeColor('orange')">Orange</button>
+        <button class="color-btn" style="background:purple;" onclick="changeColor('purple')">Purple</button>
+    </div>
+    <script>
+        function changeColor(color) {
+            document.getElementById('colorBox').style.background = color;
+        }
+    </script>
+</body>
+</html>

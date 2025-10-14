@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2</title>
+    <style>
+      .name {
+        color: blue;
+        background-color: lightgrey;
+        font-size: 5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+        border: 5px solid gold;
+      }
+      body {
+        background-color: aquamarine;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="name">Hello THIS IS a Text</div>
+    <div
+      style="
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: #f2f2f2;
+        padding: 10px;
+      "
+    >
+      <div style="background: #ff9999; padding: 20px">Item 1</div>
+      <div style="background: #99ccff; padding: 20px">Item 2</div>
+      <div style="background: #99ff99; padding: 20px">Item 3</div>
+    </div>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 50px 100px;
+        gap: 10px;
+        background: #f9f9f9;
+        padding: 10px;
+      "
+    >
+      <div style="background: #ff9999; padding: 10px">1</div>
+      <div style="background: #99ccff; padding: 10px">2</div>
+      <div style="background: #99ff99; padding: 10px">3</div>
+      <div style="background: #ffcc99; padding: 10px">4</div>
+      <div style="background: #cc99ff; padding: 10px">5</div>
+    </div>
+    <script>
+    //   console.log("Hello World");
+    //   for (let i = 1; i <= 10; i++) {
+    // //     console.log(`2 x ${i} = ${2 * i}`);}
+    //     let num = 5;
+    //     let fact = 1;
+    //     for (let j = 1; j <= num; j++) {
+    //       fact = fact * j;
+    //     }
+    //     console.log(`Factorial of ${num} is ${fact}`);
+    // for(let i=1;i<=10;i++){
+
+    //     if(i%2==0){
+    //         console.log(i);
+    //     }
+    // }
+      const expr = "Papayas";
+switch (expr) {
+  case "Oranges":
+    console.log("Oranges are $0.59 a pound.");
+    break;
+  case "Mangoes":
+  case "Papayas":
+    console.log("Mangoes and papayas are $2.79 a pound.");
+    // Expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
+}
+
+    </script>
+  </body>
+</html>

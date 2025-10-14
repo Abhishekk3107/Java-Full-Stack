@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>JavaScript Loops and Functions Examples</p>
+    <script>
+const person = { name: "Abhishek", age: 21, city: "Delhi" };
+const numbers = [1, 2, 3, 4, 5];
+
+console.log("Using for...in:");
+for (let key in person) {
+  console.log(key + ":", person[key]);
+}
+
+console.log("\nUsing for...of:");
+for (let num of numbers) {
+  console.log(num);
+}
+
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+console.log("\n" + greet("Abhishek"));
+
+const square = (n) => n * n;
+console.log("Square of 4:", square(4));
+
+function calculate(a, b, callback) {
+  return callback(a, b);
+}
+const add = (x, y) => x + y;
+console.log("Sum using callback:", calculate(5, 3, add));
+
+console.log("\nUsing Array Methods:");
+
+numbers.forEach(n => console.log("Number:", n));
+
+const doubled = numbers.map(n => n * 2);
+console.log("Doubled:", doubled);
+
+const even = numbers.filter(n => n % 2 === 0);
+console.log("Even numbers:", even);
+</script>
+</body>
+</html>
