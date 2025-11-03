@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dark Mode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            transition: background-color 0.5s, color 0.5s;
+            padding: 20px;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h1 {
+            color: #bb86fc;
+        }
+
+        #mode-toggle {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #333;
+            background-color: #fff;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        body.dark-mode #mode-toggle {
+            border: 2px solid #e0e0e0;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="mode-toggle">Toggle Dark Mode 🌙</button>
+
+    <h1>My Awesome Dark/Light Page 🌗</h1>
+    <p>This paragraph will change its colors when you click the button using JavaScript and DOM manipulation.</p>
+    <p>We are using the **classList.toggle()** command to switch between modes.</p>
+
+    <script>
+        const toggleButton = document.getElementById('mode-toggle');
+
+        toggleButton.addEventListener('click', function() {
+            const bodyElement = document.body;
+            
+            bodyElement.classList.toggle('dark-mode');
+
+            if (bodyElement.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Switch to Light Mode ☀️';
+            } else {
+                toggleButton.textContent = 'Switch to Dark Mode 🌙';
+            }
+        });
+    </script>
+</body>
+</html>

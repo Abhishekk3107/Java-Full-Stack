@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Command Demo</title>
+    <style>
+        .initial-style {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .highlight {
+            border: 2px solid green;
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container" class="initial-style" data-status="ready">
+        <h1 id="title">DOM Commands Demo</h1>
+        <p class="content">1. This is the **original** paragraph.</p>
+        <p class="content">2. Another paragraph to select.</p>
+    </div>
+
+    <button id="actionButton">Click Me to Run DOM Commands</button>
+
+    <script>
+        // --- 1. SELECTION (Finding Elements) ---
+        console.log("--- 1. SELECTION ---");
+
+        // getElementById (The fastest way to get one element)
+        const titleElement = document.getElementById('title');
+        console.log("Selected by ID:", titleElement.textContent);
+
+        // querySelector (Gets the first match)
+        const firstParagraph = document.querySelector('.content');
+        console.log("Selected by querySelector (.content):", firstParagraph.textContent);
+
+        // querySelectorAll (Gets all matches into a NodeList)
+        const allParagraphs = document.querySelectorAll('.content');
+        console.log("Total paragraphs selected by querySelectorAll:", allParagraphs.length);
+
+        // getElementsByClassName (Another way to get multiple elements)
+        const contentElements = document.getElementsByClassName('content');
+        console.log("Total paragraphs selected by getElementsByClassName:", contentElements.length);
+
+        // --- 2. MANIPULATION (Changing Elements) ---
+        console.log("\n--- 2. MANIPULATION ---");
+
+        // innerHTML (Change content, including adding new HTML)
+        titleElement.innerHTML = 'DOM Commands **Applied**!';
+
+        // textContent (Change text only, safer)
+        firstParagraph.textContent = '1. This paragraph\'s text has been changed!';
+
+        // style (Change CSS properties directly)
+        const container = document.getElementById('container');
+        container.style.backgroundColor = 'lightblue';
+        container.style.padding = '20px';
+
+        // classList.add/remove/toggle (Best way to change styles)
+        container.classList.add('highlight'); // Add the 'highlight' class
+
+        // setAttribute/getAttribute (Change or read HTML attributes)
+        const currentStatus = container.getAttribute('data-status');
+        console.log("Current data-status:", currentStatus);
+        container.setAttribute('data-status', 'updated'); // Change the attribute
+
+        // --- 3. CREATION and INSERTION ---
+        console.log("\n--- 3. CREATION & INSERTION ---");
+
+        // createElement (Create a new element in memory)
+        const newListItem = document.createElement('li');
+        newListItem.textContent = 'New Item added by JS!';
+        newListItem.style.listStyleType = 'disc'; // Add a style to the new element
+
+        // Create an unordered list to hold the new item
+        const list = document.createElement('ul');
+
+        // appendChild (Add the new element as the LAST child of another element)
+        list.appendChild(newListItem);
+        container.appendChild(list); // Add the <ul> to the main container
+
+        // insertBefore (Add element BEFORE a specific reference element)
+        const header = document.createElement('h3');
+        header.textContent = "New Sub-Header!";
+        // Insert the new header before the titleElement
+        container.insertBefore(header, titleElement);
+
+        // --- 4. DELETION (Removing Elements) ---
+        console.log("\n--- 4. DELETION ---");
+
+        // remove (Remove the element itself)
+        const secondParagraph = document.querySelector('.content:last-of-type');
+        if (secondParagraph) {
+            secondParagraph.remove();
+            console.log("Removed the second paragraph element.");
+        }
+
+        // --- 5. EVENTS (Making it interactive) ---
+        console.log("\n--- 5. EVENTS ---");
+
+        // addEventListener (The standard way to handle user interaction)
+        const button = document.getElementById('actionButton');
+        let clickCount = 0;
+
+        button.addEventListener('click', function() {
+            clickCount++;
+            this.textContent = `Clicked ${clickCount} times!`; // 'this' refers to the button
+            container.style.border = `2px solid red`;
+            alert('DOM Event Fired! Check the console/page for changes.');
+        });
+
+        console.log("Check the 'Click Me' button and the page for final results!");
+
+    </script>
+</body>
+</html>
